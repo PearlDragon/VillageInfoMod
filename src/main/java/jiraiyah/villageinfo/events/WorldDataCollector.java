@@ -152,7 +152,7 @@ public class WorldDataCollector
 					.forEach(v -> {
 						int radius = v.getVillageRadius();
 						int villagerCount = v.getNumVillagers();
-						int reputation = v.getReputationForPlayer(entityPlayer.getName());
+						int reputation = v.getPlayerReputation(entityPlayer.getName());
 						BlockPos center = v.getCenter();
 						List<VillageDoorInfo> doorInfos = v.getVillageDoorInfoList();
 						List<BlockPos> doorPositions = doorInfos.stream().map(VillageDoorInfo::getDoorBlockPos).collect(Collectors.toList());
