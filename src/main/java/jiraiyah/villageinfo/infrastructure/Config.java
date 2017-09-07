@@ -25,7 +25,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.io.File;
 
-@SuppressWarnings("unused")
 public class Config
 {
 	public static int updateRatio = 1;

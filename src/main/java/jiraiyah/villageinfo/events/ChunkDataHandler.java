@@ -22,7 +22,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.chunk.Chunk;
@@ -46,14 +46,14 @@ public class ChunkDataHandler
 		Chunk playerChunk = getChunk();
 		if (playerChunk == null)
 			return;
-		VertexBuffer buffer = Tessellator.getInstance().getBuffer();
-		EntityPlayerSP player = Minecraft.getMinecraft().thePlayer;
+		BufferBuilder buffer = Tessellator.getInstance().getBuffer();
+		EntityPlayerSP player = Minecraft.getMinecraft().player;
 		float ticks = event.getPartialTicks();
 		double plX = player.lastTickPosX + ((player.posX - player.lastTickPosX) * ticks);
 		double plY = player.lastTickPosY + ((player.posY - player.lastTickPosY) * ticks);
 		double plZ = player.lastTickPosZ + ((player.posZ - player.lastTickPosZ) * ticks);
-		int finalX = playerChunk.xPosition * 16;
-		int finalZ = playerChunk.zPosition * 16;
+		int finalX = playerChunk.x * 16;
+		int finalZ = playerChunk.z * 16;
 		if (!VillageInfo.solidDraw)
 		{
 			GlStateManager.pushMatrix();
@@ -173,7 +173,7 @@ public class ChunkDataHandler
 	private Chunk getChunk()
 	{
 		IChunkProvider chunkProvider = FMLCommonHandler.instance().getMinecraftServerInstance().getEntityWorld().getChunkProvider();
-		BlockPos tempPos = Minecraft.getMinecraft().thePlayer.getPosition();
-		return Minecraft.getMinecraft().theWorld.getChunkFromBlockCoords(tempPos);//FMLCommonHandler.instance().getMinecraftServerInstance().getEntityWorld().getChunkFromBlockCoords(tempPos);
+		BlockPos tempPos = Minecraft.getMinecraft().player.getPosition();
+		return Minecraft.getMinecraft().world.getChunkFromBlockCoords(tempPos);//FMLCommonHandler.instance().getMinecraftServerInstance().getEntityWorld().getChunkFromBlockCoords(tempPos);
 	}
 }

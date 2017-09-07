@@ -23,7 +23,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -54,16 +54,16 @@ public class WorldSpawnHandler
 			return;
 		if (!chatMessageShown)
 		{
-			EntityPlayerSP playerSP = Minecraft.getMinecraft().thePlayer;
+			EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
 			if (playerSP != null)
 			{
 				ITextComponent textComponent = new TextComponentString("Spawn Point : " + TextFormatting.DARK_RED + WorldSpawnHandler.spawnPoint.getX() + ", " + WorldSpawnHandler.spawnPoint.getY() + ", " + WorldSpawnHandler.spawnPoint.getZ());
-				playerSP.addChatMessage(textComponent);
+				playerSP.sendMessage(textComponent);
 				chatMessageShown = true;
 			}
 		}
-		VertexBuffer buffer = Tessellator.getInstance().getBuffer();
-		EntityPlayerSP player = Minecraft.getMinecraft().thePlayer;
+		BufferBuilder buffer = Tessellator.getInstance().getBuffer();
+		EntityPlayerSP player = Minecraft.getMinecraft().player;
 		float ticks = event.getPartialTicks();
 		double plX = player.lastTickPosX + ((player.posX - player.lastTickPosX) * ticks);
 		double plY = player.lastTickPosY + ((player.posY - player.lastTickPosY) * ticks);

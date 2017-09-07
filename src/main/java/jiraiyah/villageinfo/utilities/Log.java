@@ -21,7 +21,6 @@ import jiraiyah.villageinfo.references.Reference;
 import net.minecraftforge.fml.common.FMLLog;
 import org.apache.logging.log4j.Level;
 
-@SuppressWarnings({"unused", "WeakerAccess"})
 public class Log
 {
 	public static void log(Level logLevel, Object object)

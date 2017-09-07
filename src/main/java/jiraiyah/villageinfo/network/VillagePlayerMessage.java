@@ -44,7 +44,6 @@ public class VillagePlayerMessage implements IMessageHandler<VillagePlayerMessag
 		NetworkMessages.network.sendToServer(packet);
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Packet implements IMessage
 	{
 		public UUID playerId;

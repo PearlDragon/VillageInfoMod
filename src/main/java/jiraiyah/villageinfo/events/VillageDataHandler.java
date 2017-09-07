@@ -24,7 +24,7 @@ import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.math.BlockPos;
@@ -39,7 +39,7 @@ import java.util.List;
 
 import static org.lwjgl.opengl.GL11.*;
 
-@SuppressWarnings({"unused", "SuspiciousNameCombination"})
+@SuppressWarnings({"unused"})
 public class VillageDataHandler
 {
 	private static List<VillageData> villageDataList = new ArrayList<>();
@@ -62,8 +62,8 @@ public class VillageDataHandler
 	{
 		if (!VillageInfo.showVillages || villageDataList == null || villageDataList.size() == 0)
 			return;
-		VertexBuffer buffer = Tessellator.getInstance().getBuffer();
-		EntityPlayerSP player = Minecraft.getMinecraft().thePlayer;
+		BufferBuilder buffer = Tessellator.getInstance().getBuffer();
+		EntityPlayerSP player = Minecraft.getMinecraft().player;
 		float ticks = event.getPartialTicks();
 		double plX = player.lastTickPosX + ((player.posX - player.lastTickPosX) * ticks);
 		double plY = player.lastTickPosY + ((player.posY - player.lastTickPosY) * ticks);
@@ -136,7 +136,7 @@ public class VillageDataHandler
 		fontrenderer.drawString(text, -fontrenderer.getStringWidth(text) / 2, 10 * lineNumber, -1);
 	}
 
-	private void drawCenter(VertexBuffer buffer, Vector4f color)
+	private void drawCenter(BufferBuilder buffer, Vector4f color)
 	{
 		if (!VillageInfo.solidDraw)
 		{
@@ -201,7 +201,7 @@ public class VillageDataHandler
 		}
 	}
 
-	private void drawGolemSpawn(VertexBuffer buffer, Vector4f color)
+	private void drawGolemSpawn(BufferBuilder buffer, Vector4f color)
 	{
 		if (!VillageInfo.solidDraw)
 		{
@@ -266,7 +266,7 @@ public class VillageDataHandler
 		}
 	}
 
-	private void drawBorderSquare(int radius, VertexBuffer buffer, Vector4f color)
+	private void drawBorderSquare(int radius, BufferBuilder buffer, Vector4f color)
 	{
 		GlStateManager.glLineWidth(10);
 		buffer.begin(GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);
@@ -279,7 +279,7 @@ public class VillageDataHandler
 		GlStateManager.glLineWidth(1);
 	}
 
-	private void drawDoors(BlockPos center, List<BlockPos> doorPositions, VertexBuffer buffer, Vector4f color)
+	private void drawDoors(BlockPos center, List<BlockPos> doorPositions, BufferBuilder buffer, Vector4f color)
 	{
 		buffer.begin(GL_LINES, DefaultVertexFormats.POSITION_COLOR);
 		for (BlockPos doorPos : doorPositions)
@@ -296,7 +296,7 @@ public class VillageDataHandler
 		Tessellator.getInstance().draw();
 	}
 
-	private void drawBorderSpehere(int radius, int spokes, int smoothness, VertexBuffer buffer, Vector4f color)
+	private void drawBorderSpehere(int radius, int spokes, int smoothness, BufferBuilder buffer, Vector4f color)
 	{
 		for(int i = 0; i < spokes; i++) {
 			double iAngle = ((double) i / spokes) * Math.PI;
