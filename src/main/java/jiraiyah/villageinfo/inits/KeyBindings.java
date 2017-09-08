@@ -18,6 +18,7 @@
 package jiraiyah.villageinfo.inits;
 
 import jiraiyah.villageinfo.references.Reference;
+import jiraiyah.villageinfo.utilities.Log;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.client.settings.KeyConflictContext;
 import net.minecraftforge.client.settings.KeyModifier;

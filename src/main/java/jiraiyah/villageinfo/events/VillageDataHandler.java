@@ -19,6 +19,7 @@ package jiraiyah.villageinfo.events;
 
 import jiraiyah.villageinfo.VillageInfo;
 import jiraiyah.villageinfo.infrastructure.VillageData;
+import jiraiyah.villageinfo.utilities.Log;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.FontRenderer;

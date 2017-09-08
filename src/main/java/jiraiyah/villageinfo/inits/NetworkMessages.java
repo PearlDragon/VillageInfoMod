@@ -22,6 +22,7 @@ import jiraiyah.villageinfo.network.SpawnServerMessage;
 import jiraiyah.villageinfo.network.VillagePlayerMessage;
 import jiraiyah.villageinfo.network.VillageServerMessage;
 import jiraiyah.villageinfo.references.Reference;
+import jiraiyah.villageinfo.utilities.Log;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 

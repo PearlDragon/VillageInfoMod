@@ -18,6 +18,7 @@
 package jiraiyah.villageinfo.inits;
 
 import jiraiyah.villageinfo.events.WorldDataCollector;
+import jiraiyah.villageinfo.utilities.Log;
 import net.minecraftforge.common.MinecraftForge;
 
 public class CommonEventRegister

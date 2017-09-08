@@ -20,6 +20,7 @@ package jiraiyah.villageinfo.proxies;
 import jiraiyah.villageinfo.inits.CommonEventRegister;
 import jiraiyah.villageinfo.inits.NetworkMessages;
 import jiraiyah.villageinfo.interfaces.IProxy;
+import jiraiyah.villageinfo.utilities.Log;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -36,6 +37,7 @@ public class CommonProxy implements IProxy
 	@Override
 	public void init(FMLInitializationEvent event)
 	{
+		//Log.info("=========================================================> Register NetworkMessages");
 		NetworkMessages.register();
 	}
 

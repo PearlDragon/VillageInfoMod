@@ -27,23 +27,23 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = Reference.MOD_ID, version = Reference.VERSION, dependencies = Reference.DEPENDENCIES, name = Reference.MOD_NAME)
+@Mod(modid = Reference.MOD_ID, version = Reference.VERSION, name = Reference.MOD_NAME)
 public class VillageInfo
 {
     @SidedProxy(clientSide = Reference.CLIENT_PROXY, serverSide = Reference.COMMON_PROXY)
     public static CommonProxy PROXY;
 
-    public static boolean solidDraw;
-    public static boolean villageBorder;
-    public static boolean showVillages;
-    public static boolean villageDoors = true;
-    public static boolean villageSphere;
-    public static boolean villageGolem = true;
-    public static boolean villageInfoText;
-    public static boolean villageCenter = true;
-    public static boolean disableDepth = true;
-    public static boolean perVillageColor;
-    public static boolean chunkBorder;
+    public static boolean solidDraw = false;
+    public static boolean villageBorder = false;
+    public static boolean showVillages = false;
+    public static boolean villageDoors = false;
+    public static boolean villageSphere = false;
+    public static boolean villageGolem = false;
+    public static boolean villageInfoText = true;
+    public static boolean villageCenter = false;
+    public static boolean disableDepth = false;
+    public static boolean perVillageColor = false;
+    public static boolean chunkBorder = false;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)

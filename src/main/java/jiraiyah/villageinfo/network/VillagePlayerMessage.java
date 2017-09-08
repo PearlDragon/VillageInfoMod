@@ -18,6 +18,7 @@
 package jiraiyah.villageinfo.network;
 
 import io.netty.buffer.ByteBuf;
+import net.minecraft.network.PacketBuffer;
 import jiraiyah.villageinfo.events.WorldDataCollector;
 import jiraiyah.villageinfo.inits.NetworkMessages;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -64,20 +65,16 @@ public class VillagePlayerMessage implements IMessageHandler<VillagePlayerMessag
 		public void fromBytes(ByteBuf buf)
 		{
 			adding = buf.readBoolean();
-			int size = buf.readInt();
-			byte[] bytes = buf.readBytes(size).array();
-			String id = new String(bytes);
-			playerId = UUID.fromString(id);
+			PacketBuffer pbuf = new PacketBuffer(buf);
+			playerId = pbuf.readUniqueId();
 		}
 
 		@Override
 		public void toBytes(ByteBuf buf)
 		{
 			buf.writeBoolean(adding);
-			String id = playerId.toString();
-			byte[] bytes = id.getBytes();
-			buf.writeInt(bytes.length);
-			buf.writeBytes(bytes);
+			PacketBuffer pbuf = new PacketBuffer(buf);
+			pbuf.writeUniqueId(playerId);
 		}
 	}
 }
