@@ -81,15 +81,15 @@ public class WorldDataCollector
 			{
 				BlockPos tempPos = new BlockPos(x,0,z);
 				Chunk chunk = FMLCommonHandler.instance().getMinecraftServerInstance().getEntityWorld().getChunkFromBlockCoords(tempPos);
-				if (FMLCommonHandler.instance().getMinecraftServerInstance().getEntityWorld().isSpawnChunk(chunk.xPosition, chunk.zPosition))
+				if (FMLCommonHandler.instance().getMinecraftServerInstance().getEntityWorld().isSpawnChunk(chunk.x, chunk.z))
 				{
 					if (!foundFirstChunk)
 					{
 						foundFirstChunk = true;
 						cnt = 16;
 					}
-					xCoords.add(chunk.xPosition);
-					zCoords.add(chunk.zPosition);
+					xCoords.add(chunk.x);
+					zCoords.add(chunk.z);
 				}
 			}
 		}

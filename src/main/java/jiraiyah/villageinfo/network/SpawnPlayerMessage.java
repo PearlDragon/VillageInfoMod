@@ -41,7 +41,6 @@ public class SpawnPlayerMessage implements IMessageHandler<SpawnPlayerMessage.Pa
 		NetworkMessages.network.sendToServer(packet);
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Packet implements IMessage
 	{
 		public UUID playerId;

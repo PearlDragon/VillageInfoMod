@@ -47,7 +47,6 @@ public class SpawnServerMessage implements IMessageHandler<SpawnServerMessage.Pa
 		NetworkMessages.network.sendTo(packet, playerMP);
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Packet implements IMessage
 	{
 		public BlockPos spawnPoint;

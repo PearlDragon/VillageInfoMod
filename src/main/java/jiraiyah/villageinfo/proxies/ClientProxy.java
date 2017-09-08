@@ -24,7 +24,6 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.lwjgl.input.Keyboard;
 
-@SuppressWarnings("unused")
 public class ClientProxy extends CommonProxy
 {
 	@Override

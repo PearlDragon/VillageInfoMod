@@ -48,7 +48,6 @@ public class VillageServerMessage implements IMessageHandler<VillageServerMessag
 		NetworkMessages.network.sendTo(packet, playerMP);
 	}
 
-	@SuppressWarnings({"WeakerAccess", "unused"})
 	public static class Packet implements IMessage
 	{
 		public List<VillageData> data = new ArrayList<>();
