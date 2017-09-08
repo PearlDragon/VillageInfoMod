@@ -21,6 +21,7 @@ import jiraiyah.villageinfo.infrastructure.Config;
 import jiraiyah.villageinfo.infrastructure.VillageData;
 import jiraiyah.villageinfo.network.SpawnServerMessage;
 import jiraiyah.villageinfo.network.VillageServerMessage;
+import jiraiyah.villageinfo.utilities.Log;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.village.Village;
@@ -128,6 +129,7 @@ public class WorldDataCollector
 
 	private void resetVillageDataList()
 	{
+		//Log.info("=================> resetVillageDataList");
 		World world = FMLCommonHandler.instance().getMinecraftServerInstance().getEntityWorld();
 		VillageCollection villageCollection = world.getVillageCollection();
 		List<Village> allVillages = villageCollection.getVillageList();
